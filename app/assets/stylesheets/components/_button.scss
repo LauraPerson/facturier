@@ -1,0 +1,21 @@
+.button-primary {
+  background-color: $primaryc;
+}
+
+.button-second {
+  background-color: $lightc;
+}
+
+.button {
+  text-align: center;
+  padding: 20px 30px;
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.button:hover {
+  background-color: $basec;
+  color: white;
+}

@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="d-flex justify-content-between border-bottom my-4">
+    <h3 class="d-none-xs">New Invoice</h3>
+    <h3>Add an invoice</h3>
+  </div>
+  <%= simple_form_for((@invoice), data: {turbo: false}) do |f| %>
+    <%= f.input :object, label:"Object" %>
+    <%= f.input :date, label:"Date" %>
+    <%= f.input :client, label: false, collection: @clients, prompt: 'Select a client' %>
+    <%= f.submit "Ajouter le projet", class:"btn btn-primary" %>
+  <% end %>
+</div>
