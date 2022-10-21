@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="d-flex justify-content-between border-bottom my-4">
+    <h3 class="d-none-xs">New Client</h3>
+    <h3>Add a client</h3>
+  </div>
+  <%= simple_form_for((@client), data: {turbo: false}) do |f| %>
+    <%= f.input :name, label:"Titre" %>
+    <%= f.input :address,
+                    input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+                    wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}},
+                    required: true
+    %>
+    <%= f.submit "Ajouter le projet", class:"btn-primary" %>
+  <% end %>
+</div>
