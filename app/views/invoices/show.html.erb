@@ -26,25 +26,25 @@
   </div>
   <div class="row justify-content-center table-items">
     <% @items.each do |item| %>
-      <div class="col-2"><strong><p><%= item.id %></p></strong></div>
-      <div class="col-2"><strong><p><%= item.name %></p></strong></div>
-      <div class="col-2"><strong><p><%= item.quantity %></p></strong></div>
-      <div class="col-2"><strong><p><%= item.unit %></p></strong></div>
-      <div class="col-2"><strong><p><%= item.price %></p></strong></div>
-      <div class="col-2"><strong><p><%= total_price_per_item(item.quantity, item.price) %></p></strong></div>  
+        <div class="col-2"><strong><p><%= item.id %></p></strong></div>
+        <div class="col-2"><strong><p><%= item.name %></p></strong></div>
+        <div class="col-2"><strong><p><%= item.quantity %></p></strong></div>
+        <div class="col-2"><strong><p><%= item.unit %></p></strong></div>
+        <div class="col-2"><strong><p><%= item.price %></p></strong></div>
+        <div class="col-2"><strong><p><%= total_price_per_item(item.quantity, item.price) %></p></strong></div>  
     <% end %>
   </div>
 
   <div>
-    <div class="row justify-content-end table-items">
+    <div class="row justify-content-end table-items" id="table-items-total">
       <div class="col-2"><p>Montant HT</p></div>
       <div class="col-2"> <%= total_price(@items) %></div>
     </div>
-    <div class="row justify-content-end table-items">
+    <div class="row justify-content-end table-items" id="table-items-total">
       <div class="col-2"><p>Montant Total TTC</p></div>
       <div class="col-2"> <%= total_price(@items) %></div>
     </div>
-    <div class="row justify-content-end table-items">
+    <div class="row justify-content-end table-items" id="table-items-total">
       <div class="col-2"><p>Reste à payer</p></div>
       <div class="col-2"> <%= total_price(@items) %></div>
     </div>

@@ -21,7 +21,12 @@
       <div class="col-2"><strong><p><%= total_price_per_item(item.quantity, item.price) %></p></strong></div>  
     <% end %>
   </div>
-  <div class="button button-primary" id="new_item_button"  >
-    <%= link_to "+ Ajouter un nouvel élément", new_invoice_item_path(@invoice)%>
+  <div class="d-flex justify-content-between">
+    <div class="button button-primary" id="new_item_button"  >
+      <%= link_to "+ Ajouter un nouvel élément", new_invoice_item_path(@invoice)%>
+    </div>
+    <div class="button button-primary" id="new_item_button"  >
+      <%= link_to "Voir la facture finale", invoice_path(@invoice)%>
+    </div>
   </div>
 </div>
