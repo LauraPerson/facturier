@@ -6,6 +6,7 @@ class InvoicesController < ApplicationController
   def show 
     @invoice = Invoice.find(params[:id])
     @selected_client = SelectedClient.find_by(invoice_id: @invoice)
+    @items = Item.where(invoice_id: @invoice.id)
 
     # respond_to do |format|
     #   format.pdf do
@@ -38,7 +39,7 @@ class InvoicesController < ApplicationController
   end 
 
   def create
-    
+
     @invoice = Invoice.new(invoice_params)
     @invoice.user = current_user
     @client = Client.find(params[:invoice][:client])

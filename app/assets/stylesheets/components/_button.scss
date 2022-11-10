@@ -14,9 +14,18 @@
   border-radius: 10px;
   text-decoration: none;
   text-align: center;
+  a {
+    color: white;
+    text-decoration: none;
+  }
 }
 
 .button:hover {
   background-color: $basec;
   color: white;
+}
+
+#new_item_button {
+  width: fit-content;
+
 }

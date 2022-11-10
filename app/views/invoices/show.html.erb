@@ -13,6 +13,25 @@
       <p><%= @invoice.selected_client.client.address %></p>
     </div>
   </div>
+
+  <div class="row justify-content-center table-row">
+    <div class="col-2"><strong><p>Référence</p></strong></div>
+    <div class="col-2"><strong><p>Désignation</p></strong></div>
+    <div class="col-2"><strong><p>Quantité</p></strong></div>
+    <div class="col-2"><strong><p>Unité</p></strong></div>
+    <div class="col-2"><strong><p>PU HT</p></strong></div>
+    <div class="col-2"><strong><p>TOTAL HT</p></strong></div>  
+  </div>
+  <div class="row justify-content-center">
+    <% @items.each do |item| %>
+      <div class="col-2"><strong><p><%= item.id %></p></strong></div>
+      <div class="col-2"><strong><p><%= item.name %></p></strong></div>
+      <div class="col-2"><strong><p><%= item.quantity %></p></strong></div>
+      <div class="col-2"><strong><p><%= item.unit %></p></strong></div>
+      <div class="col-2"><strong><p><%= item.price %></p></strong></div>
+      <div class="col-2"><strong><p><%= total_price(item.quantity, item.price) %></p></strong></div>  
+    <% end %>
+  </div>
 </div>
 
 
