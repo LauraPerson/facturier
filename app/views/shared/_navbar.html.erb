@@ -1,9 +1,11 @@
 <div class="navbar">
   <%= link_to "Home", root_path, class:"button button-primary" %>
-  <%= link_to user_path(current_user) do  %>
-    <%= image_tag current_user.photo %>
-    <% unless current_user.photo.attached? %>
-      <p>My profile</p>
+  <% if current_user %>
+    <%= link_to user_path(current_user) do  %>
+      <%= image_tag current_user.photo %>
+      <% unless current_user.photo.attached? %>
+        <p>My profile</p>
+      <% end %>
     <% end %>
   <% end %>
 </div>
