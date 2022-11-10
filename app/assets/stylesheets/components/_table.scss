@@ -1,5 +1,18 @@
 .table-row {
-  background-color: rgb(205, 200, 200);
+  background-color: rgba(205, 200, 200, 0.708);
   display: flex;
+  padding: 5px 0;
   text-align: center;
+  p {
+    margin: 0;
+  }
+}
+
+.table-items {
+  display: flex;
+  padding: 5px 0;
+  text-align: center;
+  p {
+    margin: 0;
+  }
 }

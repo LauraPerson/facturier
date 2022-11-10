@@ -14,10 +14,12 @@ class ItemsController < ApplicationController
     @invoice = Invoice.find(params[:invoice_id])
     @item = Item.new(items_params)
     @item.invoice = @invoice
+    @item.total = @item.quantity.to_i * @item.price.to_i
     @item.save!
     flash.alert = "Item Ajouté"
     redirect_to invoice_items_path(@invoice)
   end 
+
 
   private 
 

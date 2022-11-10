@@ -18,7 +18,7 @@
       <div class="col-2"><strong><p><%= item.quantity %></p></strong></div>
       <div class="col-2"><strong><p><%= item.unit %></p></strong></div>
       <div class="col-2"><strong><p><%= item.price %></p></strong></div>
-      <div class="col-2"><strong><p><%= total_price(item.quantity, item.price) %></p></strong></div>  
+      <div class="col-2"><strong><p><%= total_price_per_item(item.quantity, item.price) %></p></strong></div>  
     <% end %>
   </div>
   <div class="button button-primary" id="new_item_button"  >
