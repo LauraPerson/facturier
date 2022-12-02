@@ -7,6 +7,10 @@
   </h2>
   <% @invoices.each do |invoice| %>
     <%= link_to invoice.object, invoice_path(invoice) %>
+
+    <h1>PDF</h1>
+    <%= link_to invoice.object, invoice_path(invoice, format: :pdf) %>
+
     <%= invoice.selected_client.client.name %>
   <% end %>
 </div>

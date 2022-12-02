@@ -8,26 +8,31 @@ class InvoicesController < ApplicationController
     @selected_client = SelectedClient.find_by(invoice_id: @invoice)
     @items = Item.where(invoice_id: @invoice.id)
 
-    # respond_to do |format|
-    #   format.pdf do
-    #     render(
-    #       pdf: 'document',
-    #       enable_local_file_access: true,
-    #       encoding: 'UTF-8',
-    #       template: 'documents/show.pdf.erb',
-    #       layout: 'pdf.html.erb',
-    #       footer: {
-    #         html: {
-    #           template: 'documents/footer.html.erb'
-    #         }
-    #       },
-    #       margin: {
-    #         top: 16, # default 10 (mm)
-    #         bottom: 16
-    #       }
-    #     )
-    #   end
-    # end
+    respond_to do |format|
+      format.html
+      format.pdf do
+        # Rails 6:
+        # render template: "posts/show.html.erb",
+        #        pdf: "Post ID: #{@post.id}"
+
+        # Rails 7:
+        # render pdf: "file_name", template: "invoices/show",
+
+        render(
+          pdf: 'document',
+          formats: [:html],
+          encoding: 'UTF-8',
+          template: 'invoices/show',
+          layout: 'pdf',
+          margin: {
+            top: 16, # default 10 (mm)
+            bottom: 16
+          }
+        )
+        
+
+      end
+    end
   end
 
 
