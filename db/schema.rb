@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_21_103420) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_10_171541) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -60,6 +60,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_21_103420) do
     t.index ["user_id"], name: "index_invoices_on_user_id"
   end
 
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.float "quantity"
+    t.string "unit"
+    t.float "price"
+    t.bigint "invoice_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "total"
+    t.index ["invoice_id"], name: "index_items_on_invoice_id"
+  end
+
   create_table "selected_clients", force: :cascade do |t|
     t.bigint "invoice_id", null: false
     t.bigint "client_id", null: false
@@ -93,6 +105,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_21_103420) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "clients", "users"
   add_foreign_key "invoices", "users"
+  add_foreign_key "items", "invoices"
   add_foreign_key "selected_clients", "clients"
   add_foreign_key "selected_clients", "invoices"
 end

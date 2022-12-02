@@ -5,4 +5,9 @@ class Invoice < ApplicationRecord
 
   has_one :selected_client
   has_one :client, through: :selected_client
+
+  has_many :items
+
+
+
 end

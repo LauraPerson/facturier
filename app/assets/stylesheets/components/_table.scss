@@ -1,0 +1,29 @@
+.table-row {
+  background-color: rgba(205, 200, 200, 0.708);
+  display: flex;
+  padding: 5px 0;
+  text-align: center;
+  p {
+    margin: 0;
+  }
+}
+
+.table-items {
+  display: flex;
+  padding: 5px 0;
+  text-align: center;
+  p {
+    margin: 0;
+  }
+  .col-2 {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.269);
+    border-left: 1px solid rgba(128, 128, 128, 0.269);
+
+    padding: 5px;
+  }
+}
+
+#table-items-total {
+  text-align: left;
+}
+

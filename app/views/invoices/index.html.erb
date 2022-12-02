@@ -1,12 +1,16 @@
 <div class="container">
   <h1>My Invoices#index</h1>
   <h2>
-    <% if @number_of_invoices == nil %>
+    <% if @number_of_invoices == 0 %>
       <h2>Add clients before invoicing!</h2>
     <% end %>
   </h2>
   <% @invoices.each do |invoice| %>
     <%= link_to invoice.object, invoice_path(invoice) %>
+
+    <h1>PDF</h1>
+    <%= link_to invoice.object, invoice_path(invoice, format: :pdf) %>
+
     <%= invoice.selected_client.client.name %>
   <% end %>
 </div>

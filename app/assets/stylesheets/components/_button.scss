@@ -7,15 +7,25 @@
 }
 
 .button {
+  border: none;
   text-align: center;
-  padding: 20px 30px;
+  padding: 10px 30px;
   color: white;
   border-radius: 10px;
   text-decoration: none;
   text-align: center;
+  a {
+    color: white;
+    text-decoration: none;
+  }
 }
 
 .button:hover {
   background-color: $basec;
   color: white;
+}
+
+#new_item_button {
+  width: fit-content;
+
 }

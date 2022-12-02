@@ -1,16 +1,54 @@
 <div class="container container-invoice">
   <div class=" d-flex justify-content-between">
-    <div >
-      <%= image_tag current_user.photo %>
+    <div>
+      <% if current_user.photo.attached? %>
+        <%= image_tag current_user.photo %>
+      <% end %>
       <p><%= current_user.first_name %><%= current_user.last_name %></p>
       <p><%= current_user.address %></p>
-      <strong><p  id="invoice-object">Objet : <%= @invoice.object %></p></strong>
+      <strong><p id="invoice-object">Objet : <%= @invoice.object %></p></strong>
     </div>
     <div class="text-end">
-      <p>Facture n° F<%= @invoice.date.strftime("%Y%m%d") %>LP <%=  %></p>
+      <p>Facture n° <%= invoice_number(@invoice) %></p>
       <p><%= @invoice.date.strftime("%d/%m/%Y") %></p>
       <p><%= @invoice.selected_client.client.name %></p>
       <p><%= @invoice.selected_client.client.address %></p>
     </div>
   </div>
+
+  <div class="row justify-content-center table-row">
+    <div class="col-2"><strong><p>Référence</p></strong></div>
+    <div class="col-2"><strong><p>Désignation</p></strong></div>
+    <div class="col-2"><strong><p>Quantité</p></strong></div>
+    <div class="col-2"><strong><p>Unité</p></strong></div>
+    <div class="col-2"><strong><p>PU HT</p></strong></div>
+    <div class="col-2"><strong><p>TOTAL HT</p></strong></div>  
+  </div>
+  <div class="row justify-content-center table-items">
+    <% @items.each do |item| %>
+        <div class="col-2"><p><%= item.id %></p></div>
+        <div class="col-2"><p><%= item.name %></p></div>
+        <div class="col-2"><p><%= item.quantity %></p></div>
+        <div class="col-2"><p><%= item.unit %></p></div>
+        <div class="col-2"><p><%= item.price %></p></div>
+        <div class="col-2"><p><%= total_price_per_item(item.quantity, item.price) %></p></div>  
+    <% end %>
+  </div>
+
+  <div>
+    <div class="row justify-content-end table-items">
+      <div class="col-2"><p>Montant HT</p></div>
+      <div class="col-2"> <%= total_price(@items) %></div>
+    </div>
+    <div class="row justify-content-end table-items">
+      <div class="col-2"><p>Montant Total TTC</p></div>
+      <div class="col-2"> <%= total_price(@items) %></div>
+    </div>
+    <div class="row justify-content-end table-items">
+      <div class="col-2"><strong><p>Reste à payer</p></strong></div>
+      <div class="col-2"><strong> <%= total_price(@items) %></strong></div>
+    </div>
+  
+  </div>
 </div>
+
